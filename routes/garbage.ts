@@ -46,4 +46,22 @@ module.exports = {
       },
     })
   },
+
+  async ['/aaa']({ res, request, cheerio }) {
+    const html = await request.send(`https://smartmll.com/`)
+    const $ = cheerio.load(html)
+    const resou = $('.inname.small.huise.resou.width94 a')
+    const resouList = $(resou)
+      .toArray()
+      .map((item: any) => {
+        return $(item).text().trim()
+      })
+
+    res.send({
+      code: 200,
+      data: {
+        resouList,
+      },
+    })
+  },
 }
