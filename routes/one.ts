@@ -27,6 +27,7 @@ module.exports = {
       code: 200,
       data: {
         homeCitaList,
+        v:1,
       },
     })
   },
