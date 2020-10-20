@@ -1,6 +1,12 @@
 import { StringUtil } from '../common/util/string_util'
 
 module.exports = {
+  /**
+   * @api {get} /yilin/home
+   * @apiDescription 获取意林杂志列表
+   * @apiGroup 【意林】
+   * @apiVersion 0.0.0
+   */
   async ['/home']({ res, request, cheerio }) {
     const html = await request.send(`https://www.yilinzazhi.com/`)
     const $ = cheerio.load(html)
@@ -25,6 +31,13 @@ module.exports = {
     })
   },
 
+  /**
+   * @api {get} /yilin/article_list
+   * @apiDescription 获取意林杂志文章目录
+   * @apiGroup 【意林】
+   * @apiParam {string} id 杂志ID
+   * @apiVersion 0.0.0
+   */
   async ['/article_list']({ res, req, request, cheerio }) {
     const { id } = req.query
     const html = await request.send(
@@ -64,6 +77,13 @@ module.exports = {
     })
   },
 
+   /**
+   * @api {get} /yilin/article_detail
+   * @apiDescription 获取意林杂志文章详情
+   * @apiGroup 【意林】
+   * @apiParam {string} id 文章ID
+   * @apiVersion 0.0.0
+   */
   async ['/article_detail']({ res, req, request, cheerio }) {
     const { url } = req.query
     const html = await request.send(url)

@@ -1,6 +1,12 @@
 import { StringUtil } from '../common/util/string_util'
 
 module.exports = {
+  /**
+   * @api {get} /one/home
+   * @apiDescription 获取【一个】首页推荐
+   * @apiGroup 【一个】
+   * @apiVersion 0.0.0
+   */
   async ['/home']({ res, request, cheerio }) {
     const html = await request.send(`http://wufazhuce.com/`)
     const $ = cheerio.load(html)
@@ -27,11 +33,18 @@ module.exports = {
       code: 200,
       data: {
         homeCitaList,
-        v:1,
+        v: 1,
       },
     })
   },
 
+  /**
+   * @api {get} /one/article_detail
+   * @apiDescription 获取【一个】文章详情
+   * @apiGroup 【一个】
+   * @apiParam {string} id 文章ID
+   * @apiVersion 0.0.0
+   */
   async ['/article_detail']({ res, req, request, cheerio }) {
     const { id } = req.query
     const html = await request.send(`http://wufazhuce.com/article/${id}`)

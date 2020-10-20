@@ -1,10 +1,11 @@
 {
-  "name": "migumusicapi",
+  "name": "BkndsApi",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "ts-node bin/www",
-    "dev": "./node_modules/.bin/nodemon -e ts --exec ts-node bin/www"
+    "dev": "./node_modules/.bin/nodemon -e ts --exec ts-node bin/www",
+    "doc": "apidoc -i routes/ -o apidoc/"
   },
   "dependencies": {
     "@types/express": "^4.17.2",
@@ -22,5 +23,9 @@
     "axios": "^0.19.0",
     "cheerio": "^1.0.0-rc.3",
     "node-jsencrypt": "^1.0.0"
+  },
+  "apidoc": {
+    "title": "Bknds API Doc",
+    "url": "bknds.jiajiale.site"
   }
 }
