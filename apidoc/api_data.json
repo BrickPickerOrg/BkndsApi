@@ -130,6 +130,61 @@
   },
   {
     "type": "get",
+    "url": "/constellation/fortune",
+    "title": "",
+    "description": "<p>星座运势</p>",
+    "group": "【星座】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "en_name",
+            "description": "<p>星座英文名称</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/constellation.ts",
+    "groupTitle": "【星座】",
+    "name": "GetConstellationFortune"
+  },
+  {
+    "type": "get",
+    "url": "/constellation/match",
+    "title": "",
+    "description": "<p>星座匹配</p>",
+    "group": "【星座】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "male",
+            "description": "<p>男生星座ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "female",
+            "description": "<p>女生星座ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/constellation.ts",
+    "groupTitle": "【星座】",
+    "name": "GetConstellationMatch"
+  },
+  {
+    "type": "get",
     "url": "/migu/search/all",
     "title": "",
     "description": "<p>搜索全部</p>",

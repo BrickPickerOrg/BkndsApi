@@ -1,5 +1,47 @@
 module.exports = {
   /**
+   * @api {get} /constellation/fortune
+   * @apiDescription 星座运势
+   * @apiGroup 【星座】
+   * @apiParam {string} en_name 星座英文名称
+   * @apiVersion 0.0.0
+   */
+  async ['/fortune']({ req, res, request, cheerio }) {
+    const { en_name: enName, code } = req.query
+
+    const html = await request.send(
+      `https://m.xzw.com/fortune/${enName}/${code ? code + '.html' : ''}`
+    )
+    const $ = cheerio.load(html)
+
+    const avatar = $('.mpart .tbox .astro img').attr('src')
+    const name = $('.mpart .tbox .astro h2').text()
+    const luck = $('.mpart .tbox .astro h4').text()
+    const advice = $('.mpart .tbox .astro h3').text()
+    const luckList = $('.mpart .tbox ul li .m_star em')
+      .toArray()
+      .map((item: any) => parseFloat($(item).css('width')) / 0.5)
+
+    const article = $('article.cont p')
+      .toArray()
+      .map((item: any) =>
+        $(item)
+          .text()
+          .replace(/星(.{1})座(.{1})屋/g, '')
+      )
+    res.send({
+      code: 200,
+      data: {
+        avatar: `https://m.xzw.com${avatar}`,
+        name,
+        luck,
+        advice,
+        luckList,
+        article,
+      },
+    })
+  },
+  /**
    * @api {get} /constellation/match
    * @apiDescription 星座匹配
    * @apiGroup 【星座】
