@@ -185,6 +185,30 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/huangli",
+    "title": "",
+    "description": "<p>老黄历查询</p>",
+    "group": "【老黄历】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "date",
+            "description": "<p>日期 格式yyyymmdd</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/huangli.ts",
+    "groupTitle": "【老黄历】",
+    "name": "GetHuangli"
+  },
+  {
+    "type": "get",
     "url": "/migu/search/all",
     "title": "",
     "description": "<p>搜索全部</p>",
@@ -220,6 +244,44 @@ define({ "api": [
     "filename": "routes/migu/search.ts",
     "groupTitle": "咪咕音乐|_搜索",
     "name": "GetMiguSearchAll"
+  },
+  {
+    "type": "get",
+    "url": "/migu/search/song_url",
+    "title": "",
+    "description": "<p>获取歌曲播放链接</p>",
+    "group": "咪咕音乐|_搜索",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>歌曲ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>歌曲名</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "singer",
+            "description": "<p>歌手名  (多个歌手名用/连接)</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/migu/search.ts",
+    "groupTitle": "咪咕音乐|_搜索",
+    "name": "GetMiguSearchSong_url"
   },
   {
     "type": "get",

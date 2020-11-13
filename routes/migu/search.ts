@@ -109,6 +109,31 @@ module.exports = {
    * @apiParam {string} singer 歌手名  (多个歌手名用/连接)
    * @apiVersion 0.0.0
    */
+  async ['/lyric']({ req, res, request, cheerio }) {
+    const { cid } = req.query
+    const result = await request.send(`http://music.migu.cn/v3/api/music/audioPlayer/getLyric?copyrightId=${cid}`)
+    if (result.msg === '成功') {
+      return res.send({
+        result: 100,
+        data: result.lyric,
+      });
+    }
+
+    return res.send({
+      result: 200,
+      errMsg: result.msg,
+    });
+  },
+
+  /**
+   * @api {get} /migu/search/song_url
+   * @apiDescription 获取歌曲播放链接
+   * @apiGroup 咪咕音乐|  搜索
+   * @apiParam {string} id 歌曲ID
+   * @apiParam {string} name 歌曲名
+   * @apiParam {string} singer 歌手名  (多个歌手名用/连接)
+   * @apiVersion 0.0.0
+   */
   async ['/song_url']({ req, res, request, cheerio }) {
     const { id } = req.query
     const { name } = req.query
@@ -135,7 +160,10 @@ module.exports = {
     })
 
     if (urlResult.code === '000000') {
-      return res.redirect(urlResult.data.url)
+      return res.send({
+        code: 200,
+        data: { url: urlResult.data.url },
+      })
     } else {
       const result = await request.send({
         url: 'http://pd.musicapp.migu.cn/MIGUM3.0/v1.0/content/search_all.do',
@@ -153,7 +181,10 @@ module.exports = {
       const formatResult = items.filter((item: any) => item['id'] === id)
       const PayingUrl = `http://218.205.239.34/MIGUM2.0/v1.0/content/sub/listenSong.do?toneFlag=HQ&netType=00&copyrightId=0&contentId=${formatResult[0].contentId}&resourceType=2&channel=0`
 
-      return res.redirect(PayingUrl)
+      return res.send({
+        code: 200,
+        data: { url: PayingUrl },
+      })
     }
   },
 }
