@@ -130,6 +130,65 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/chengyu/detail",
+    "title": "",
+    "description": "<p>成语详情</p>",
+    "group": "【成语】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>成语id</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/chengyu.ts",
+    "groupTitle": "【成语】",
+    "name": "GetChengyuDetail"
+  },
+  {
+    "type": "get",
+    "url": "/chengyu/resou",
+    "title": "",
+    "description": "<p>成语热搜</p>",
+    "group": "【成语】",
+    "version": "0.0.0",
+    "filename": "routes/chengyu.ts",
+    "groupTitle": "【成语】",
+    "name": "GetChengyuResou"
+  },
+  {
+    "type": "get",
+    "url": "/chengyu/search",
+    "title": "",
+    "description": "<p>成语搜索</p>",
+    "group": "【成语】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "key",
+            "description": "<p>成语名称 支持模糊搜索</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/chengyu.ts",
+    "groupTitle": "【成语】",
+    "name": "GetChengyuSearch"
+  },
+  {
+    "type": "get",
     "url": "/constellation/fortune",
     "title": "",
     "description": "<p>星座运势</p>",
