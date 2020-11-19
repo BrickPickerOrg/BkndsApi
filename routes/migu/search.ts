@@ -101,12 +101,10 @@ module.exports = {
   },
 
   /**
-   * @api {get} /migu/search/song_url
-   * @apiDescription 获取歌曲播放链接
+   * @api {get} /migu/search/lyric
+   * @apiDescription 获取歌词
    * @apiGroup 咪咕音乐|  搜索
-   * @apiParam {string} id 歌曲ID
-   * @apiParam {string} name 歌曲名
-   * @apiParam {string} singer 歌手名  (多个歌手名用/连接)
+   * @apiParam {string} cid 歌曲cid
    * @apiVersion 0.0.0
    */
   async ['/lyric']({ req, res, request, cheerio }) {

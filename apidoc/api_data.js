@@ -36,6 +36,75 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/twelve_animals/luck",
+    "title": "",
+    "description": "<p>生肖运势</p>",
+    "group": "【十二生肖】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>生肖code</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "cury",
+            "description": "<p>需要查询的年份</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "sxy",
+            "description": "<p>生肖年份</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/twelve_animals.ts",
+    "groupTitle": "【十二生肖】",
+    "name": "GetTwelve_animalsLuck"
+  },
+  {
+    "type": "get",
+    "url": "/twelve_animals/match",
+    "title": "",
+    "description": "<p>生肖匹配</p>",
+    "group": "【十二生肖】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "male",
+            "description": "<p>男生肖code</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "female",
+            "description": "<p>女生肖code</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/twelve_animals.ts",
+    "groupTitle": "【十二生肖】",
+    "name": "GetTwelve_animalsMatch"
+  },
+  {
+    "type": "get",
     "url": "/garbage/resou",
     "title": "",
     "description": "<p>垃圾分类热搜词</p>",
@@ -68,6 +137,61 @@ define({ "api": [
     "filename": "routes/garbage.ts",
     "groupTitle": "【垃圾分类】",
     "name": "GetGarbageSearch"
+  },
+  {
+    "type": "get",
+    "url": "/ichong/pachong/detail",
+    "title": "",
+    "description": "<p>宠物详情</p>",
+    "group": "【宠物】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>宠物ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "key",
+            "description": "<p>宠物类别</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/ichong/pachong.ts",
+    "groupTitle": "【宠物】",
+    "name": "GetIchongPachongDetail"
+  },
+  {
+    "type": "get",
+    "url": "/ichong/pachong/list",
+    "title": "",
+    "description": "<p>宠物列表</p>",
+    "group": "【宠物】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "type",
+            "description": "<p>宠物类别【wugui zhizhu xiyi】</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/ichong/pachong.ts",
+    "groupTitle": "【宠物】",
+    "name": "GetIchongPachongList"
   },
   {
     "type": "get",
@@ -306,9 +430,9 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/migu/search/song_url",
+    "url": "/migu/search/lyric",
     "title": "",
-    "description": "<p>获取歌曲播放链接</p>",
+    "description": "<p>获取歌词</p>",
     "group": "咪咕音乐|_搜索",
     "parameter": {
       "fields": {
@@ -317,22 +441,8 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
-            "description": "<p>歌曲ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "name",
-            "description": "<p>歌曲名</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "singer",
-            "description": "<p>歌手名  (多个歌手名用/连接)</p>"
+            "field": "cid",
+            "description": "<p>歌曲cid</p>"
           }
         ]
       }
@@ -340,7 +450,7 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "routes/migu/search.ts",
     "groupTitle": "咪咕音乐|_搜索",
-    "name": "GetMiguSearchSong_url"
+    "name": "GetMiguSearchLyric"
   },
   {
     "type": "get",
