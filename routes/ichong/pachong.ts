@@ -13,7 +13,7 @@ module.exports = {
 
     const $ = cheerio.load(html)
     const list = $('.pet_list .pet_s').toArray().map((petItem: any) => {
-      const match = $(petItem).find('p a').attr('href').match(/http:\/\/www\.ichong123\.com\/(.*?)\/(.{5})$/)
+      const match = $(petItem).find('p a').attr('href').match(/http:\/\/www\.ichong123\.com\/(.*?)\/(.*?)$/)
       return {
         img: $(petItem).find('img').attr('src'),
         name: $(petItem).find('p').text().trim(),
@@ -25,7 +25,7 @@ module.exports = {
     res.send({
       code: 200,
       data: {
-        list:list.filter((item) => item.id),
+        list:list.filter((item) => item.id && item.img !== 'http://www.ichong123.com/'),
       },
     })
   },
