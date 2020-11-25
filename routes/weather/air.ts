@@ -2,13 +2,13 @@ import { StringUtil } from '../../common/util/string_util'
 
 module.exports = {
   /**
-   * @api {get} /weather/air/list
+   * @api {get} /weather/air/sort
    * @apiDescription 空气质量城市列表
    * @apiGroup 【天气】
    * @apiParam {string} sort 列表排序方式
    * @apiVersion 0.0.0
    */
-  async ['/list']({ req, res, request, cheerio }) {
+  async ['/sort']({ req, res, request, cheerio }) {
     const { sort } = req.query
     const html = await request.send({
       url: `https://www.tianqi.com/air/?o=${sort}`,
