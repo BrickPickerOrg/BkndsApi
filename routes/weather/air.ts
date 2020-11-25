@@ -14,7 +14,7 @@ module.exports = {
       url: `https://www.tianqi.com/air/?o=${sort}`,
       headers: {
         'Host': 'www.tianqi.com',
-        'Referer': 'https://www.tianqi.com/',
+        'referer': 'https://www.tianqi.com/',
         'Upgrade-Insecure-Requests':1,
         'Cookie': 'UM_distinctid=175915a90550-0d00ea4d69f851-445e6c-1fa400-175915a90561c9; CNZZDATA1275796416=179272268-1606189335-https%253A%252F%252Fwww.baidu.com%252F%7C1606286089; Hm_lvt_ab6a683aa97a52202eab5b3a9042a8d2=1606190530; Hm_lpvt_ab6a683aa97a52202eab5b3a9042a8d2=1606289780; CNZZDATA1277722738=1732760904-1606195443-%7C1606282614; cityPy=beijing; cityPy_expire=1606881333',
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:82.0) Gecko/20100101 Firefox/82.0'
@@ -54,8 +54,8 @@ module.exports = {
       url: `https://www.tianqi.com/air/${id}.html`,
       headers: {
         'Host': 'www.tianqi.com',
-        'Referer': 'https://www.tianqi.com/',
-        'Upgrade-Insecure-Requests':1,
+        'referer': 'https://www.tianqi.com/',
+        'Upgrade-Insecure-Requests': 1,
         'Cookie': 'UM_distinctid=175915a90550-0d00ea4d69f851-445e6c-1fa400-175915a90561c9; CNZZDATA1275796416=179272268-1606189335-https%253A%252F%252Fwww.baidu.com%252F%7C1606286089; Hm_lvt_ab6a683aa97a52202eab5b3a9042a8d2=1606190530; Hm_lpvt_ab6a683aa97a52202eab5b3a9042a8d2=1606289780; CNZZDATA1277722738=1732760904-1606195443-%7C1606282614; cityPy=beijing; cityPy_expire=1606881333',
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:82.0) Gecko/20100101 Firefox/82.0'
       },
@@ -100,7 +100,7 @@ module.exports = {
       url: `https://www.tianqi.com/air/`,
       headers: {
         'Host': 'www.tianqi.com',
-        'Referer': 'https://www.tianqi.com/',
+        'referer': 'https://www.tianqi.com/',
         'Upgrade-Insecure-Requests':1,
         'Cookie': 'UM_distinctid=175915a90550-0d00ea4d69f851-445e6c-1fa400-175915a90561c9; CNZZDATA1275796416=179272268-1606189335-https%253A%252F%252Fwww.baidu.com%252F%7C1606286089; Hm_lvt_ab6a683aa97a52202eab5b3a9042a8d2=1606190530; Hm_lpvt_ab6a683aa97a52202eab5b3a9042a8d2=1606289780; CNZZDATA1277722738=1732760904-1606195443-%7C1606282614; cityPy=beijing; cityPy_expire=1606881333',
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:82.0) Gecko/20100101 Firefox/82.0'

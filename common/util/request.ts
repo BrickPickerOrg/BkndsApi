@@ -42,16 +42,19 @@ export class request {
     try {
       if (typeof options === 'string') options = { url: options }
 
+      options.method = options.method || 'GET'
       const { url, data, method } = options
       const _referer = 'http://music.migu.cn/v3'
-      options.method = method || 'GET'
-      options.headers = options.headers || {}
-      options.headers.Referer = options.headers.Referer || _referer
+
       if (method === 'GET') {
         options.url = StringUtil.changeUrlQuery(data, url)
         delete options.data
       }
-     
+
+      options.headers = options.headers || {}
+      options.headers.referer = options.headers.referer || _referer
+      options.headers.Referer = options.headers.referer
+      console.log(options.headers.Referer)
       const res: ResObj = await axios(options)
       return res.data
     } catch (err) {
