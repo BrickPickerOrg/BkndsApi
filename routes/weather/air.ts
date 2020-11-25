@@ -20,7 +20,7 @@ module.exports = {
         city: $(item).find('td').eq(1).text(),
         provinces: $(item).find('td').eq(2).text(),
         index: $(item).find('td').eq(3).text(),
-        level: $(item).find('td').eq(4).text().replace(/\n/g,''),
+        level: $(item).find('td').eq(4).text().replace(/\n/g,'').replace('污染',''),
       }
     })
 
@@ -41,27 +41,16 @@ module.exports = {
    */
   async ['/detail']({ req, res, request, cheerio }) {
     const { id } = req.query
-    const html = await request.send({
-      url: `https://www.tianqi.com/air/${id}.html`,
-      headers: {
-        'host': 'www.tianqi.com',
-        'referer': 'https://www.tianqi.com/',
-        'upgrade-insecure-requests': 1,
-        'cookie': 'UM_distinctid=175915a90550-0d00ea4d69f851-445e6c-1fa400-175915a90561c9; CNZZDATA1275796416=179272268-1606189335-https%253A%252F%252Fwww.baidu.com%252F%7C1606286089; Hm_lvt_ab6a683aa97a52202eab5b3a9042a8d2=1606190530; Hm_lpvt_ab6a683aa97a52202eab5b3a9042a8d2=1606289780; CNZZDATA1277722738=1732760904-1606195443-%7C1606282614; cityPy=beijing; cityPy_expire=1606881333',
-        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:82.0) Gecko/20100101 Firefox/82.0'
-      },
-    })
+    const html = await request.send(`http://m.86pm25.com/city/${id}.html`)
     const $ = cheerio.load(html)
-    const text = $('.air_canvaspic .air_canvas_desc').text().replace(/\n/g,'')
-    const warmtips = $('.air_warmtips .rank_jump').text().replace(/\n/g,'')
-    const index = $('.air_canvaspic .air_canvaspictitle').text()
-    const date = $('.baseinfo_date').text()
-    const city = $('.baseinfo_position').text()
-    const pollutants = $('.air_pollution .air_pitem li').toArray().map((item: any) => {
+    const index = $('.main_aqi').first().text().replace(/-./g, '').trim()
+    const date = $('.main_aqi').eq(1).text().match(/(.{2})-(.{2}) (.{2}):(.{2})/)[0]
+    const city = $('.main_title').text()
+    const week = $('.list2').last().find('li').toArray().map((item: any) => {
       return {
-        pollute_item: $(item).find('.pollute_item').text(),
-        value: $(item).find('.pollute_data span').eq(0).text(),
-        level: $(item).find('.pollute_data span').eq(1).text().replace(/\n/g,''),
+        date: $(item).find('div').eq(0).text(),
+        aqi: $(item).find('div').eq(1).text(),
+        level: $(item).find('div').eq(2).text(),
       }
     })
     
@@ -71,9 +60,7 @@ module.exports = {
         city,
         date,
         index,
-        text,
-        warmtips,
-        pollutants
+        week
       },
     })
   },
@@ -87,31 +74,22 @@ module.exports = {
    */
   async ['/search']({ req, res, request, cheerio }) {
     const { city } = req.query
-    const html = await request.send({
-      url: `https://www.tianqi.com/air/`,
-      headers: {
-        'host': 'www.tianqi.com',
-        'referer': 'https://www.tianqi.com/',
-        'upgrade-insecure-requests':1,
-        'cookie': 'UM_distinctid=175915a90550-0d00ea4d69f851-445e6c-1fa400-175915a90561c9; CNZZDATA1275796416=179272268-1606189335-https%253A%252F%252Fwww.baidu.com%252F%7C1606286089; Hm_lvt_ab6a683aa97a52202eab5b3a9042a8d2=1606190530; Hm_lpvt_ab6a683aa97a52202eab5b3a9042a8d2=1606289780; CNZZDATA1277722738=1732760904-1606195443-%7C1606282614; cityPy=beijing; cityPy_expire=1606881333',
-        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:82.0) Gecko/20100101 Firefox/82.0'
-      },
-    })
+    const html = await request.send(`http://www.86pm25.com/paiming.htm`)
     const $ = cheerio.load(html)
-    const result = $('.aqi_ranklist li.clearfix').toArray().map((item: any) => {
-      const regx = /\/air\/(.*?)\.html/
+    const result = $('#goodtable tbody tr').toArray().map((item: any) => {
+      const regx = /\/city\/(.*?)\.html/
       return {
-        id: $(item).find('span').eq(1).find('a').attr('href').match(regx)[1],
-        sort: $(item).find('span').eq(0).text(),
-        city: $(item).find('span').eq(1).text(),
-        provinces: $(item).find('span').eq(2).text(),
-        index: $(item).find('span').eq(3).text(),
-        level: $(item).find('span').eq(4).text().replace(/\n/g,''),
+        id: $(item).find('td').eq(1).find('a').attr('href').match(regx)[1],
+        sort: $(item).find('td').eq(0).text().trim(),
+        city: $(item).find('td').eq(1).text(),
+        provinces: $(item).find('td').eq(2).text(),
+        index: $(item).find('td').eq(3).text(),
+        level: $(item).find('td').eq(4).text().replace(/\n/g,'').replace('污染',''),
       }
     })
 
     const arr = result.filter(item => {
-      return item.city === city
+      return item.city.indexOf(city) > -1
     })
     
     res.send({
