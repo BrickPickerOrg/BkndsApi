@@ -10,7 +10,13 @@ module.exports = {
    */
   async ['/list']({ req, res, request, cheerio }) {
     const { sort } = req.query
-    const html = await request.send(`https://www.tianqi.com/air/?o=${sort}`)
+    const html = await request.send({
+      url: `https://www.tianqi.com/air/?o=${sort}`,
+      headers: {
+        'referer': 'https://www.tianqi.com/',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:82.0) Gecko/20100101 Firefox/82.0'
+      },
+    })
     const $ = cheerio.load(html)
     const result = $('.aqi_ranklist li.clearfix').toArray().map((item: any) => {
       const regx = /\/air\/(.*?)\.html/
@@ -41,7 +47,13 @@ module.exports = {
    */
   async ['/detail']({ req, res, request, cheerio }) {
     const { id } = req.query
-    const html = await request.send(`https://www.tianqi.com/air/${id}.html`)
+    const html = await request.send({
+      url: `https://www.tianqi.com/air/${id}.html`,
+      headers: {
+        'referer': 'https://www.tianqi.com/',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:82.0) Gecko/20100101 Firefox/82.0'
+      },
+    })
     const $ = cheerio.load(html)
     const text = $('.air_canvaspic .air_canvas_desc').text().replace(/\n/g,'')
     const warmtips = $('.air_warmtips .rank_jump').text().replace(/\n/g,'')
@@ -78,7 +90,13 @@ module.exports = {
    */
   async ['/search']({ req, res, request, cheerio }) {
     const { city } = req.query
-    const html = await request.send(`https://www.tianqi.com/air/`)
+    const html = await request.send({
+      url: `https://www.tianqi.com/air/`,
+      headers: {
+        'referer': 'https://www.tianqi.com/',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:82.0) Gecko/20100101 Firefox/82.0'
+      },
+    })
     const $ = cheerio.load(html)
     const result = $('.aqi_ranklist li.clearfix').toArray().map((item: any) => {
       const regx = /\/air\/(.*?)\.html/

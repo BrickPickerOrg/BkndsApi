@@ -42,8 +42,8 @@ export class request {
     try {
       if (typeof options === 'string') options = { url: options }
 
-      options.method = options.method || 'GET'
       const { url, data, method } = options
+      options.method = method || 'GET'
       const _referer = 'http://music.migu.cn/v3'
 
       if (method === 'GET') {
