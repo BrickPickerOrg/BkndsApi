@@ -43,7 +43,7 @@ module.exports = {
     const { id } = req.query
     const html = await request.send(`http://m.86pm25.com/city/${id}.html`)
     const $ = cheerio.load(html)
-    const index = $('.main_aqi').first().text().replace(/-./g, '').trim()
+    const index = $('.main_aqi').first().text().replace(/(-|\+).*/g, '').trim()
     const date = $('.main_aqi').eq(1).text().match(/(.{2})-(.{2}) (.{2}):(.{2})/)[0]
     const city = $('.main_title').text()
     const week = $('.list2').last().find('li').toArray().map((item: any) => {
