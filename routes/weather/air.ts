@@ -1,5 +1,4 @@
 import { StringUtil } from '../../common/util/string_util'
-const https = require('https');
 
 module.exports = {
   /**
@@ -11,45 +10,26 @@ module.exports = {
    */
   async ['/sort']({ req, res, request, cheerio }) {
     const { sort } = req.query
-    // const html = await request.send({
-    //   url: `https://www.tianqi.com/air/?o=${sort}`,
-    //   headers: {
-    //     'host': 'www.tianqi.com',
-    //     'referer': 'https://www.tianqi.com/',
-    //     'upgrade-insecure-requests':1,
-    //     'cookie': 'UM_distinctid=175915a90550-0d00ea4d69f851-445e6c-1fa400-175915a90561c9; CNZZDATA1275796416=179272268-1606189335-https%253A%252F%252Fwww.baidu.com%252F%7C1606286089; Hm_lvt_ab6a683aa97a52202eab5b3a9042a8d2=1606190530; Hm_lpvt_ab6a683aa97a52202eab5b3a9042a8d2=1606289780; CNZZDATA1277722738=1732760904-1606195443-%7C1606282614; cityPy=beijing; cityPy_expire=1606881333',
-    //     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:82.0) Gecko/20100101 Firefox/82.0'
-    //   },
-    // })
-    https.get(`https://www.tianqi.com/air/?o=${sort}`, (resu) => {
-      let html = '';
-      resu.on('data', (data) => {
-        html += data;
-      });
-      resu.on('end', () => {
-        const $ = cheerio.load(html)
-        const result = $('.aqi_ranklist li.clearfix').toArray().map((item: any) => {
-          const regx = /\/air\/(.*?)\.html/
-          return {
-            id: $(item).find('span').eq(1).find('a').attr('href').match(regx)[1],
-            sort: $(item).find('span').eq(0).text(),
-            city: $(item).find('span').eq(1).text(),
-            provinces: $(item).find('span').eq(2).text(),
-            index: $(item).find('span').eq(3).text(),
-            level: $(item).find('span').eq(4).text().replace(/\n/g,''),
-          }
-        })
+    const html = await request.send(`http://www.86pm25.com/paiming.htm`)
+    const $ = cheerio.load(html)
+    const result = $('#goodtable tbody tr').toArray().map((item: any) => {
+      const regx = /\/city\/(.*?)\.html/
+      return {
+        id: $(item).find('td').eq(1).find('a').attr('href').match(regx)[1],
+        sort: $(item).find('td').eq(0).text().trim(),
+        city: $(item).find('td').eq(1).text(),
+        provinces: $(item).find('td').eq(2).text(),
+        index: $(item).find('td').eq(3).text(),
+        level: $(item).find('td').eq(4).text().replace(/\n/g,''),
+      }
+    })
 
-        res.send({
-          code: 200,
-          data: {
-            result,
-          },
-        })
-      });
-      }).on('error', () => {
-        console.log('获取网页信息错误');
-      });
+    res.send({
+      code: 200,
+      data: {
+        result,
+      },
+    })
   },
 
   /**
