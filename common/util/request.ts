@@ -54,7 +54,6 @@ export class request {
       options.headers = options.headers || {}
       options.headers.referer = options.headers.referer || _referer
       options.headers.Referer = options.headers.referer
-      console.log(options.headers.Referer)
       const res: ResObj = await axios(options)
       return res.data
     } catch (err) {
