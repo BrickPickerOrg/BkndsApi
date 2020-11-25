@@ -3,7 +3,7 @@ module.exports = {
    * @api {get} /ichong/pachong/list
    * @apiDescription 宠物列表
    * @apiGroup 【宠物】
-   * @apiParam {string} type 宠物类别【wugui zhizhu xiyi】
+   * @apiParam {string} type 宠物类别【wugui zhizhu xiyi yu】
    * @apiVersion 0.0.0
    */
   async ['/list']({ req, res, request, cheerio }) {

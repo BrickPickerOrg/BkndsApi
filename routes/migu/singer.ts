@@ -93,6 +93,8 @@ module.exports = {
     // 该歌手所有单曲
     const items = $('.songlist-body .J_CopySong')
 
+    const total = $('.artist-section .views-pagination .pagination-item').last().text()
+
     let songlist = $(items).toArray()
     songlist = songlist.map((item: any) => {
       const $item = $(item)
@@ -141,7 +143,10 @@ module.exports = {
 
     res.send({
       code: 200,
-      data: { songlist },
+      data: {
+        total: parseInt(total),
+        songlist
+      },
     })
   },
 }
