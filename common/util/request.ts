@@ -43,16 +43,15 @@ export class request {
       if (typeof options === 'string') options = { url: options }
 
       const { url, data, method } = options
-      options.method = method || 'GET'
       const _referer = 'http://music.migu.cn/v3'
-
+      options.method = method || 'GET'
+      options.headers = options.headers || {}
+      options.headers.Referer = options.headers.Referer || _referer
       if (method === 'GET') {
         options.url = StringUtil.changeUrlQuery(data, url)
         delete options.data
       }
-
-      options.headers = options.headers || {}
-      options.headers.referer = options.headers.referer || _referer
+     
       const res: ResObj = await axios(options)
       return res.data
     } catch (err) {
