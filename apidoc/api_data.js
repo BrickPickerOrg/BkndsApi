@@ -36,6 +36,89 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/foxue/",
+    "title": "",
+    "description": "<p>佛学辞典列表</p>",
+    "group": "【佛学辞典】",
+    "version": "0.0.0",
+    "filename": "routes/foxue.ts",
+    "groupTitle": "【佛学辞典】",
+    "name": "GetFoxue"
+  },
+  {
+    "type": "get",
+    "url": "/foxue/detail",
+    "title": "",
+    "description": "<p>佛学辞典语录详情</p>",
+    "group": "【佛学辞典】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>详情ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/foxue.ts",
+    "groupTitle": "【佛学辞典】",
+    "name": "GetFoxueDetail"
+  },
+  {
+    "type": "get",
+    "url": "/foxue/directory",
+    "title": "",
+    "description": "<p>根据辞典ID获取辞典目录</p>",
+    "group": "【佛学辞典】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>辞典ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/foxue.ts",
+    "groupTitle": "【佛学辞典】",
+    "name": "GetFoxueDirectory"
+  },
+  {
+    "type": "get",
+    "url": "/foxue/search",
+    "title": "",
+    "description": "<p>搜索关键词</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "key",
+            "description": "<p>关键词</p>"
+          }
+        ]
+      }
+    },
+    "group": "【佛学辞典】",
+    "version": "0.0.0",
+    "filename": "routes/foxue.ts",
+    "groupTitle": "【佛学辞典】",
+    "name": "GetFoxueSearch"
+  },
+  {
+    "type": "get",
     "url": "/twelve_animals/luck",
     "title": "",
     "description": "<p>生肖运势</p>",

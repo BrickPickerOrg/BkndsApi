@@ -14,7 +14,7 @@ module.exports = {
       const regx = /\.\/list_(.*?)\.html/
       return {
         id: $(item).find('a').attr('href').match(regx)[1],
-        name: $(item).text().trim().replace(/\n/g,''),
+        name: $(item).text().replace(/\n/g,'').trim(),
       }
     })
 
@@ -27,116 +27,84 @@ module.exports = {
   },
 
   /**
-   * @api {get} /weather/air/detail
-   * @apiDescription 空气质量城市详情
-   * @apiGroup 【天气】
-   * @apiParam {string} id 城市id
+   * @api {get} /foxue/directory
+   * @apiDescription 根据辞典ID获取辞典目录
+   * @apiGroup 【佛学辞典】
+   * @apiParam {string} id 辞典ID
    * @apiVersion 0.0.0
    */
-  async ['/detail']({ req, res, request, cheerio }) {
+  async ['/directory']({ req, res, request, cheerio }) {
     const { id } = req.query
-    const html = await request.send(`http://m.86pm25.com/city/${id}.html`)
+    const html = await request.send(`http://www.tool5.com/foxue/list_${id}.html`)
     const $ = cheerio.load(html)
-    const index = $('.main_aqi').first().text().replace(/(-|\+).*/g, '').trim()
-    const date = $('.main_aqi').eq(1).text().match(/(.{2})-(.{2}) (.{2}):(.{2})/)[0]
-    const city = $('.main_title').text()
-    const week = $('.list2').last().find('li').toArray().map((item: any) => {
+    const title = $('h2').text()
+    const directory = $('.mcon.noi ul.l3 li').toArray().map((item: any) => {
+      const regx = /\.\/id_(.*?)\.html/
       return {
-        date: $(item).find('div').eq(0).text(),
-        aqi: $(item).find('div').eq(1).text(),
-        level: $(item).find('div').eq(2).text(),
+        id: $(item).find('a').attr('href').match(regx)[1],
+        name: $(item).text().replace(/\n/g,'').trim(),
       }
     })
-    
-    res.send({
-      code: 200,
-      data: {
-        city,
-        date,
-        index,
-        week
-      },
-    })
-  },
-
-  /**
-   * @api {get} /weather/air/search
-   * @apiDescription 通过城市名搜索
-   * @apiGroup 【天气】
-   * @apiParam {string} city 城市名
-   * @apiVersion 0.0.0
-   */
-  async ['/search']({ req, res, request, cheerio }) {
-    const { city } = req.query
-    const html = await request.send(`http://www.86pm25.com/paiming.htm`)
-    const $ = cheerio.load(html)
-    const result = $('#goodtable tbody tr').toArray().map((item: any) => {
-      const regx = /\/city\/(.*?)\.html/
-      return {
-        id: $(item).find('td').eq(1).find('a').attr('href').match(regx)[1],
-        sort: $(item).find('td').eq(0).text().trim(),
-        city: $(item).find('td').eq(1).text(),
-        provinces: $(item).find('td').eq(2).text(),
-        index: $(item).find('td').eq(3).text(),
-        level: $(item).find('td').eq(4).text().replace(/\n/g,'').replace('污染',''),
-      }
-    })
-
-    const arr = result.filter(item => {
-      return item.city.indexOf(city) > -1
-    })
-    
-    res.send({
-      code: 200,
-      data: {
-        result: arr
-      },
-    })
-  },
-
-  /**
-   * @api {get} /weather/air/pm25List
-   * @apiDescription 获取PM2.5新闻列表
-   * @apiGroup 【天气】
-   * @apiVersion 0.0.0
-   */
-  async ['/pm25List']({ req, res, request, cheerio }) {
-    const html = await request.send(`https://m.tianqi.com/zhuanti/PM25`)
-    const $ = cheerio.load(html)
-    const result = $('.ocetwo').eq(1).find('.diandian').toArray().map((item: any) => {
-      const regx = /\/news\/(.*?)\.html/
-      return {
-        id: $(item).attr('href').match(regx)[1],
-        title: $(item).text().replace(/\n/g,''),
-      }
-    })
-    
-    res.send({
-      code: 200,
-      data: {
-        result
-      },
-    })
-  },
-
-  /**
-   * @api {get} /weather/air/pm25Detail
-   * @apiDescription 获取PM2.5新闻详情
-   * @apiGroup 【天气】
-   * @apiVersion 0.0.0
-   */
-  async ['/pm25Detail']({ req, res, request, cheerio }) {
-    const { id } = req.query
-    const html = await request.send(`https://m.tianqi.com/news/${id}.html`)
-    const $ = cheerio.load(html)
-    const title = $('.news_read h1').text().replace(/\n/g,'')
-    const content = $('.news_read #readtxt').html()
     
     res.send({
       code: 200,
       data: {
         title,
-        content: StringUtil.formatUnicode(content).replace('全国污染指数查询：http://www.tianqi.com/air/', ''),
+        directory,
+      },
+    })
+  },
+
+  /**
+   * @api {get} /foxue/detail
+   * @apiDescription 佛学辞典语录详情
+   * @apiGroup 【佛学辞典】
+   * @apiParam {string} id 详情ID
+   * @apiVersion 0.0.0
+   */
+  async ['/detail']({ req, res, request, cheerio }) {
+    const { id } = req.query
+    const html = await request.send(`http://www.tool5.com/foxue/id_${id}.html`)
+    const $ = cheerio.load(html)
+    const title = $('.mcon.noi').find('h2').text().replace(/\n/g,'').trim()
+    const content = $('.mcon.noi').find('p').first().text().replace(/\n/g,'').trim()
+    
+    res.send({
+      code: 200,
+      data: {
+        title,
+        content
+      },
+    })
+  },
+
+  /**
+   * @api {get} /foxue/search
+   * @apiDescription 搜索关键词
+   * @apiParam {string} key 关键词
+   * @apiGroup 【佛学辞典】
+   * @apiVersion 0.0.0
+   */
+  async ['/search']({ req, res, request, cheerio }) {
+    const { key } = req.query
+    const html = await request.send(`http://www.tool5.com/foxue/q_${encodeURI(key)}.html`)
+    const $ = cheerio.load(html)
+    const result = $('.l2.bt.mt.pt li').toArray().map((item: any) => {
+      const regx = /\.\/id_(.*?)\.html/
+      const regx1 = /\.\/list_(.*?)\.html/
+      return {
+        id: $(item).find('a').first().attr('href').match(regx)[1],
+        name: $(item).find('a').first().text().replace(/\n/g,'').trim(),
+        from_id: $(item).find('a').last().attr('href').match(regx1)[1],
+        from_name: $(item).find('a').last().text().replace(/\n/g,'').trim(),
+      }
+    })
+    
+    res.send({
+      code: 200,
+      data: {
+        key,
+        result
       },
     })
   },
