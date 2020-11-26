@@ -140,6 +140,100 @@
   },
   {
     "type": "get",
+    "url": "/weather/air/detail",
+    "title": "",
+    "description": "<p>空气质量城市详情</p>",
+    "group": "【天气】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>城市id</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/weather/air.ts",
+    "groupTitle": "【天气】",
+    "name": "GetWeatherAirDetail"
+  },
+  {
+    "type": "get",
+    "url": "/weather/air/pm25Detail",
+    "title": "",
+    "description": "<p>获取PM2.5新闻详情</p>",
+    "group": "【天气】",
+    "version": "0.0.0",
+    "filename": "routes/weather/air.ts",
+    "groupTitle": "【天气】",
+    "name": "GetWeatherAirPm25detail"
+  },
+  {
+    "type": "get",
+    "url": "/weather/air/pm25List",
+    "title": "",
+    "description": "<p>获取PM2.5新闻列表</p>",
+    "group": "【天气】",
+    "version": "0.0.0",
+    "filename": "routes/weather/air.ts",
+    "groupTitle": "【天气】",
+    "name": "GetWeatherAirPm25list"
+  },
+  {
+    "type": "get",
+    "url": "/weather/air/search",
+    "title": "",
+    "description": "<p>通过城市名搜索</p>",
+    "group": "【天气】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "city",
+            "description": "<p>城市名</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/weather/air.ts",
+    "groupTitle": "【天气】",
+    "name": "GetWeatherAirSearch"
+  },
+  {
+    "type": "get",
+    "url": "/weather/air/sort",
+    "title": "",
+    "description": "<p>空气质量城市列表</p>",
+    "group": "【天气】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "sort",
+            "description": "<p>列表排序方式</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/weather/air.ts",
+    "groupTitle": "【天气】",
+    "name": "GetWeatherAirSort"
+  },
+  {
+    "type": "get",
     "url": "/ichong/pachong/detail",
     "title": "",
     "description": "<p>宠物详情</p>",
@@ -183,7 +277,7 @@
             "type": "string",
             "optional": false,
             "field": "type",
-            "description": "<p>宠物类别【wugui zhizhu xiyi】</p>"
+            "description": "<p>宠物类别【wugui zhizhu xiyi yu】</p>"
           }
         ]
       }
