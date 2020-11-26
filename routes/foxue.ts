@@ -67,8 +67,11 @@ module.exports = {
     const html = await request.send(`http://www.tool5.com/foxue/id_${id}.html`)
     const $ = cheerio.load(html)
     const title = $('.mcon.noi').find('h2').text().replace(/\n/g,'').trim()
-    const content = $('.mcon.noi').find('p').first().text().replace(/\n/g,'').trim()
-    
+    let content = $('.mcon.noi').find('p').first().text().replace(/\n/g,'').trim()
+    if (content.match(/^p(.*?)$/) && content.match(/^p(.*?)$/).length > 0) {
+      content = $('.mcon.noi').find('p').eq(1).text().replace(/\n/g,'').trim()
+    }
+
     res.send({
       code: 200,
       data: {
