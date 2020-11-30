@@ -1,5 +1,3 @@
-import { StringUtil } from '../common/util/string_util'
-
 module.exports = {
   /**
    * @api {get} /foxue/

@@ -36,6 +36,41 @@
   },
   {
     "type": "get",
+    "url": "/sanzijing/",
+    "title": "",
+    "description": "<p>三字经列表</p>",
+    "group": "【三字经】",
+    "version": "0.0.0",
+    "filename": "routes/sanzijing.ts",
+    "groupTitle": "【三字经】",
+    "name": "GetSanzijing"
+  },
+  {
+    "type": "get",
+    "url": "/sanzijing/detail",
+    "title": "",
+    "description": "<p>三字经详情解释</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>段落ID</p>"
+          }
+        ]
+      }
+    },
+    "group": "【三字经】",
+    "version": "0.0.0",
+    "filename": "routes/sanzijing.ts",
+    "groupTitle": "【三字经】",
+    "name": "GetSanzijingDetail"
+  },
+  {
+    "type": "get",
     "url": "/foxue/",
     "title": "",
     "description": "<p>佛学辞典列表</p>",
@@ -185,6 +220,41 @@
     "filename": "routes/twelve_animals.ts",
     "groupTitle": "【十二生肖】",
     "name": "GetTwelve_animalsMatch"
+  },
+  {
+    "type": "get",
+    "url": "/koran/detail",
+    "title": "",
+    "description": "<p>古兰经章节详情</p>",
+    "group": "【古兰经】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>详情ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/koran.ts",
+    "groupTitle": "【古兰经】",
+    "name": "GetKoranDetail"
+  },
+  {
+    "type": "get",
+    "url": "/koran/directory",
+    "title": "",
+    "description": "<p>获取古兰经目录</p>",
+    "group": "【古兰经】",
+    "version": "0.0.0",
+    "filename": "routes/koran.ts",
+    "groupTitle": "【古兰经】",
+    "name": "GetKoranDirectory"
   },
   {
     "type": "get",
