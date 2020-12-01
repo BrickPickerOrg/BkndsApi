@@ -71,6 +71,65 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/zhongyao/detail",
+    "title": "",
+    "description": "<p>中草药详情解释</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>中草药ID</p>"
+          }
+        ]
+      }
+    },
+    "group": "【中草药大全】",
+    "version": "0.0.0",
+    "filename": "routes/zhongyao.ts",
+    "groupTitle": "【中草药大全】",
+    "name": "GetZhongyaoDetail"
+  },
+  {
+    "type": "get",
+    "url": "/zhongyao/resou/",
+    "title": "",
+    "description": "<p>中草药大全热搜</p>",
+    "group": "【中草药大全】",
+    "version": "0.0.0",
+    "filename": "routes/zhongyao.ts",
+    "groupTitle": "【中草药大全】",
+    "name": "GetZhongyaoResou"
+  },
+  {
+    "type": "get",
+    "url": "/zhongyao/search/",
+    "title": "",
+    "description": "<p>中草药大全搜索</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "key",
+            "description": "<p>中草药关键字</p>"
+          }
+        ]
+      }
+    },
+    "group": "【中草药大全】",
+    "version": "0.0.0",
+    "filename": "routes/zhongyao.ts",
+    "groupTitle": "【中草药大全】",
+    "name": "GetZhongyaoSearch"
+  },
+  {
+    "type": "get",
     "url": "/foxue/",
     "title": "",
     "description": "<p>佛学辞典列表</p>",
@@ -888,6 +947,17 @@ define({ "api": [
     "filename": "routes/migu/singer.ts",
     "groupTitle": "咪咕音乐|_歌手",
     "name": "GetMiguSingerSinger_detail"
+  },
+  {
+    "type": "get",
+    "url": "/migu/home/",
+    "title": "",
+    "description": "<p>首页</p>",
+    "group": "咪咕音乐|_首页",
+    "version": "0.0.0",
+    "filename": "routes/migu/home.ts",
+    "groupTitle": "咪咕音乐|_首页",
+    "name": "GetMiguHome"
   },
   {
     "type": "get",
