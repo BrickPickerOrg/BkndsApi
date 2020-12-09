@@ -58,7 +58,7 @@ module.exports = {
       // 专辑ID
       const id = $item.find('.album-play').attr('data-id')
       // 专辑封面
-      const coverUrl = `https:${$item.find('.img-full').attr('src')}`
+      const coverUrl = `https:${$item.find('.img-full').attr('data-src')}`
       // 专辑名
       const albumName = $item.find('.item-info .album-name').text().replace(/\n/g, '')
       let singers = $item.find('.singer a').toArray()
@@ -76,13 +76,38 @@ module.exports = {
       return { id, coverUrl, albumName, singers, time }
     })
 
+    const digital = $('#digitalAlbum .wrapper-items .item-contain').toArray().map((item: any) => {
+      const $item = $(item)
+      const regx = /\/v3\/music\/digital_album\/(.*?)\?origin=(.*?)$/
+        // 专辑ID
+        const id = $item.find('.img-box').attr('href').match(regx)[1]
+        // 专辑封面
+        const coverUrl = `https:${$item.find('.img-full').attr('data-src')}`
+        // 专辑名
+        const albumName = $item.find('.item-info .album-name').text().replace(/\n/g, '')
+        let singers = $item.find('.singer a').toArray()
+        singers = singers.map((singer: any) => {
+          const $singer = $(singer)
+          const id = $singer.attr('href').replace(/\/v3\/music\/artist\//g, '')
+          const name = $singer.text()
+          return {
+            id,
+            name,
+          }
+        })
+        // 发布时间
+        const time = $item.find('.update-time').text().replace(/\n/g, '')
+        return { id, coverUrl, albumName, singers, time }
+      })
+
     res.send({
       code: 200,
       data: {
         playlist,
         songsImgBox,
         songs,
-        albums
+        albums,
+        digital
       },
     })
   },
