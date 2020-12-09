@@ -35,7 +35,7 @@ module.exports = {
   /**
    * @api {get} /chengyu/detail
    * @apiDescription 成语详情
-   * @apiGroup 【成语】
+   * @apiGroup 【成语】 
    * @apiParam {string} id 成语id
    * @apiVersion 0.0.0
    */
