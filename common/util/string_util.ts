@@ -40,15 +40,16 @@ export class StringUtil {
   }
 
   static formatUnicode(string: string): string {
-    return this.getTopicDescription(
-      this.replaceSymbol(
-        unescape(string.replace(/&#x/g, '%u').replace(/;/g, ''))
-      )
+    return this.replaceSymbol(
+      unescape(string.replace(/&#x/g, '%u').replace(/;/g, ''))
     )
   }
 
   static getTopicDescription(body: string): string {
-    let res = body.match(/<p[^>]*>(.*?)<\/p>/g)
+    let str = this.replaceSymbol(
+      unescape(body.replace(/&#x/g, '%u').replace(/;/g, ''))
+    )
+    let res = str.match(/<p[^>]*>(.*?)<\/p>/g)
     return res != null ? res.join('\n').replace(/<[^>]+>/g, '') : ''
   }
 }

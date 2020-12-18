@@ -352,6 +352,89 @@
   },
   {
     "type": "get",
+    "url": "/base/bible/",
+    "title": "",
+    "description": "<p>基督教圣经列表</p>",
+    "group": "【基督教圣经】",
+    "version": "0.0.0",
+    "filename": "routes/base/bible.ts",
+    "groupTitle": "【基督教圣经】",
+    "name": "GetBaseBible"
+  },
+  {
+    "type": "get",
+    "url": "/base/bible/detail",
+    "title": "",
+    "description": "<p>基督教圣经详情</p>",
+    "group": "【基督教圣经】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>详情ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/base/bible.ts",
+    "groupTitle": "【基督教圣经】",
+    "name": "GetBaseBibleDetail"
+  },
+  {
+    "type": "get",
+    "url": "/base/bible/directory",
+    "title": "",
+    "description": "<p>根据章节ID获取详细目录</p>",
+    "group": "【基督教圣经】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>章节ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/base/bible.ts",
+    "groupTitle": "【基督教圣经】",
+    "name": "GetBaseBibleDirectory"
+  },
+  {
+    "type": "get",
+    "url": "/base/bible/search",
+    "title": "",
+    "description": "<p>搜索关键词</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "key",
+            "description": "<p>关键词</p>"
+          }
+        ]
+      }
+    },
+    "group": "【基督教圣经】",
+    "version": "0.0.0",
+    "filename": "routes/base/bible.ts",
+    "groupTitle": "【基督教圣经】",
+    "name": "GetBaseBibleSearch"
+  },
+  {
+    "type": "get",
     "url": "/weather/air/detail",
     "title": "",
     "description": "<p>空气质量城市详情</p>",
