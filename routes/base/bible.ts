@@ -8,9 +8,9 @@ module.exports = {
    * @apiVersion 0.0.0
    */
   async ['/']({ res, request, cheerio }) {
-    const html = await request.send(`http://www.tool5.com/shengjing/`)
+    const html = await request.send(`http://m.tool5.com/shengjing/`)
     const $ = cheerio.load(html)
-    const result = $('.f14 ul.l3 li').toArray().map((item: any) => {
+    const result = $('.txtlist').first().find('li').toArray().map((item: any) => {
       const regx = /\.\/(.*?)\.html/
       const title = $(item).text().replace(/\n/g, '').trim().split(' ')
       return {
