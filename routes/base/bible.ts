@@ -32,9 +32,8 @@ module.exports = {
     res.send({
       code: 200,
       data: {
-        // part1,
-        // part2,
-        html
+        part1,
+        part2
       },
     })
   },
