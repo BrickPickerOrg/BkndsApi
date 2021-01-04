@@ -1,10 +1,10 @@
-import { StringUtil } from '../common/util/string_util'
+import { StringUtil } from '../../common/util/string_util'
 
 module.exports = {
   /**
-   * @api {get} /koran/directory
+   * @api {get} /base/koran/directory
    * @apiDescription 获取古兰经目录
-   * @apiGroup 【古兰经】
+   * @apiGroup 【base】
    * @apiVersion 0.0.0
    */
   async ['/directory']({ req, res, request, cheerio }) {
@@ -29,9 +29,9 @@ module.exports = {
   },
 
   /**
-   * @api {get} /koran/detail
+   * @api {get} /base/koran/detail
    * @apiDescription 古兰经章节详情
-   * @apiGroup 【古兰经】
+   * @apiGroup 【base】
    * @apiParam {string} id 详情ID
    * @apiVersion 0.0.0
    */

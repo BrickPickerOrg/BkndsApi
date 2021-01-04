@@ -1,8 +1,8 @@
 module.exports = {
   /**
-   * @api {get} /chengyu/search
+   * @api {get} /base/chengyu/search
    * @apiDescription 成语搜索
-   * @apiGroup 【成语】
+   * @apiGroup 【base】
    * @apiParam {string} key 成语名称 支持模糊搜索
    * @apiVersion 0.0.0
    */
@@ -33,9 +33,9 @@ module.exports = {
   },
 
   /**
-   * @api {get} /chengyu/detail
+   * @api {get} /base/chengyu/detail
    * @apiDescription 成语详情
-   * @apiGroup 【成语】 
+   * @apiGroup 【base】 
    * @apiParam {string} id 成语id
    * @apiVersion 0.0.0
    */
@@ -83,9 +83,9 @@ module.exports = {
   },
 
   /**
-   * @api {get} /chengyu/resou
+   * @api {get} /base/chengyu/resou
    * @apiDescription 成语热搜
-   * @apiGroup 【成语】
+   * @apiGroup 【base】
    * @apiVersion 0.0.0
    */
   async ['/resou']({ req, res, request, cheerio }) {

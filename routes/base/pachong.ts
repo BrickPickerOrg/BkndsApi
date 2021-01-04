@@ -1,8 +1,8 @@
 module.exports = {
   /**
-   * @api {get} /ichong/pachong/list
+   * @api {get} /base/pachong/list
    * @apiDescription 宠物列表
-   * @apiGroup 【宠物】
+   * @apiGroup 【base】
    * @apiParam {string} type 宠物类别【wugui zhizhu xiyi yu】
    * @apiVersion 0.0.0
    */
@@ -31,9 +31,9 @@ module.exports = {
   },
 
   /**
-   * @api {get} /ichong/pachong/detail
+   * @api {get} /base/pachong/detail
    * @apiDescription 宠物详情
-   * @apiGroup 【宠物】
+   * @apiGroup 【base】
    * @apiParam {string} id 宠物ID
    * @apiParam {string} key 宠物类别
    * @apiVersion 0.0.0

@@ -1,10 +1,10 @@
-import { StringUtil } from '../common/util/string_util'
+import { StringUtil } from '../../common/util/string_util'
 
 module.exports = {
   /**
-   * @api {get} /sanzijing/
+   * @api {get} /base/sanzijing/
    * @apiDescription 三字经列表
-   * @apiGroup 【三字经】
+   * @apiGroup 【base】
    * @apiVersion 0.0.0
    */
   async ['/']({ res, request, cheerio }) {
@@ -29,10 +29,10 @@ module.exports = {
   },
 
   /**
-   * @api {get} /sanzijing/detail
+   * @api {get} /base/sanzijing/detail
    * @apiDescription 三字经详情解释
    * @apiParam {string} id 段落ID
-   * @apiGroup 【三字经】
+   * @apiGroup 【base】
    * @apiVersion 0.0.0
    */
   async ['/detail']({ req, res, request, cheerio }) {

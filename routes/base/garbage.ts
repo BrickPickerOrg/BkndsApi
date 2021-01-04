@@ -1,8 +1,8 @@
 module.exports = {
   /**
-   * @api {get} /garbage/resou
+   * @api {get} /base/garbage/resou
    * @apiDescription 垃圾分类热搜词
-   * @apiGroup 【垃圾分类】
+   * @apiGroup 【base】
    * @apiVersion 0.0.0
    */
   async ['/resou']({ res, request, cheerio }) {
@@ -24,9 +24,9 @@ module.exports = {
   },
 
   /**
-   * @api {get} /garbage/search
+   * @api {get} /base/garbage/search
    * @apiDescription 垃圾分类搜索
-   * @apiGroup 【垃圾分类】
+   * @apiGroup 【base】
    * @apiParam {string} key 关键字
    * @apiVersion 0.0.0
    */

@@ -4,7 +4,7 @@ module.exports = {
   /**
    * @api {get} /base/bible/
    * @apiDescription 基督教圣经列表
-   * @apiGroup 【基督教圣经】
+   * @apiGroup 【base】
    * @apiVersion 0.0.0
    */
   async ['/']({ res, request, cheerio }) {
@@ -41,7 +41,7 @@ module.exports = {
   /**
    * @api {get} /base/bible/directory
    * @apiDescription 根据章节ID获取详细目录
-   * @apiGroup 【基督教圣经】
+   * @apiGroup 【base】
    * @apiParam {string} id 章节ID
    * @apiVersion 0.0.0
    */
@@ -70,7 +70,7 @@ module.exports = {
   /**
    * @api {get} /base/bible/detail
    * @apiDescription 基督教圣经详情
-   * @apiGroup 【基督教圣经】
+   * @apiGroup 【base】
    * @apiParam {string} id 详情ID
    * @apiVersion 0.0.0
    */
@@ -106,7 +106,7 @@ module.exports = {
    * @api {get} /base/bible/search
    * @apiDescription 搜索关键词
    * @apiParam {string} key 关键词
-   * @apiGroup 【基督教圣经】
+   * @apiGroup 【base】
    * @apiVersion 0.0.0
    */
   async ['/search']({ req, res, request, cheerio }) {

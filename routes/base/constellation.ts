@@ -1,8 +1,8 @@
 module.exports = {
   /**
-   * @api {get} /constellation/fortune
+   * @api {get} /base/constellation/fortune
    * @apiDescription 星座运势
-   * @apiGroup 【星座】
+   * @apiGroup 【base】
    * @apiParam {string} en_name 星座英文名称
    * @apiVersion 0.0.0
    */
@@ -42,9 +42,9 @@ module.exports = {
     })
   },
   /**
-   * @api {get} /constellation/match
+   * @api {get} /base/constellation/match
    * @apiDescription 星座匹配
-   * @apiGroup 【星座】
+   * @apiGroup 【base】
    * @apiParam {number} male 男生星座ID
    * @apiParam {number} female 女生星座ID
    * @apiVersion 0.0.0

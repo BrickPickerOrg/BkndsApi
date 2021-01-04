@@ -1,8 +1,8 @@
 module.exports = {
   /**
-   * @api {get} /twelve_animals/luck
+   * @api {get} /base/twelve_animals/luck
    * @apiDescription 生肖运势
-   * @apiGroup 【十二生肖】
+   * @apiGroup 【base】
    * @apiParam {string} code 生肖code
    * @apiParam {string} cury 需要查询的年份
    * @apiParam {string} sxy 生肖年份
@@ -49,9 +49,9 @@ module.exports = {
   },
 
   /**
-   * @api {get} /twelve_animals/match
+   * @api {get} /base/twelve_animals/match
    * @apiDescription 生肖匹配
-   * @apiGroup 【十二生肖】
+   * @apiGroup 【base】
    * @apiParam {string} male 男生肖code
    * @apiParam {string} female 女生肖code
    * @apiVersion 0.0.0

@@ -1,10 +1,10 @@
-import { StringUtil } from '../common/util/string_util'
+import { StringUtil } from '../../common/util/string_util'
 
 module.exports = {
   /**
-   * @api {get} /zhongyao/resou/
+   * @api {get} /base/zhongyao/resou/
    * @apiDescription 中草药大全热搜
-   * @apiGroup 【中草药大全】
+   * @apiGroup 【base】
    * @apiVersion 0.0.0
    */
   async ['/resou']({ res, request, cheerio }) {
@@ -29,10 +29,10 @@ module.exports = {
   },
 
   /**
-   * @api {get} /zhongyao/search/
+   * @api {get} /base/zhongyao/search/
    * @apiDescription 中草药大全搜索
    * @apiParam {string} key 中草药关键字
-   * @apiGroup 【中草药大全】
+   * @apiGroup 【base】
    * @apiVersion 0.0.0
    */
   async ['/search']({ req, res, request, cheerio }) {
@@ -56,10 +56,10 @@ module.exports = {
   },
 
   /**
-   * @api {get} /zhongyao/detail
+   * @api {get} /base/zhongyao/detail
    * @apiDescription 中草药详情解释
    * @apiParam {string} id 中草药ID
-   * @apiGroup 【中草药大全】
+   * @apiGroup 【base】
    * @apiVersion 0.0.0
    */
   async ['/detail']({ req, res, request, cheerio }) {

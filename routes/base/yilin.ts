@@ -1,10 +1,10 @@
-import { StringUtil } from '../common/util/string_util'
+import { StringUtil } from '../../common/util/string_util'
 
 module.exports = {
   /**
-   * @api {get} /yilin/home
+   * @api {get} /base/yilin/home
    * @apiDescription 获取意林杂志列表
-   * @apiGroup 【意林】
+   * @apiGroup 【base】
    * @apiVersion 0.0.0
    */
   async ['/home']({ res, request, cheerio }) {
@@ -32,9 +32,9 @@ module.exports = {
   },
 
   /**
-   * @api {get} /yilin/article_list
+   * @api {get} /base/yilin/article_list
    * @apiDescription 获取意林杂志文章目录
-   * @apiGroup 【意林】
+   * @apiGroup 【base】
    * @apiParam {string} id 杂志ID
    * @apiVersion 0.0.0
    */
@@ -78,9 +78,9 @@ module.exports = {
   },
 
    /**
-   * @api {get} /yilin/article_detail
+   * @api {get} /base/yilin/article_detail
    * @apiDescription 获取意林杂志文章详情
-   * @apiGroup 【意林】
+   * @apiGroup 【base】
    * @apiParam {string} id 文章ID
    * @apiVersion 0.0.0
    */

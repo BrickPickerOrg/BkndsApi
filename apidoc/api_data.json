@@ -1,10 +1,10 @@
 [
   {
     "type": "get",
-    "url": "/one/article_detail",
+    "url": "/base/air/detail",
     "title": "",
-    "description": "<p>获取【一个】文章详情</p>",
-    "group": "【一个】",
+    "description": "<p>空气质量城市详情</p>",
+    "group": "【base】",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -13,43 +13,44 @@
             "type": "string",
             "optional": false,
             "field": "id",
-            "description": "<p>文章ID</p>"
+            "description": "<p>城市id</p>"
           }
         ]
       }
     },
     "version": "0.0.0",
-    "filename": "routes/one.ts",
-    "groupTitle": "【一个】",
-    "name": "GetOneArticle_detail"
+    "filename": "routes/base/air.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseAirDetail"
   },
   {
     "type": "get",
-    "url": "/one/home",
+    "url": "/base/air/pm25Detail",
     "title": "",
-    "description": "<p>获取【一个】首页推荐</p>",
-    "group": "【一个】",
+    "description": "<p>获取PM2.5新闻详情</p>",
+    "group": "【base】",
     "version": "0.0.0",
-    "filename": "routes/one.ts",
-    "groupTitle": "【一个】",
-    "name": "GetOneHome"
+    "filename": "routes/base/air.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseAirPm25detail"
   },
   {
     "type": "get",
-    "url": "/sanzijing/",
+    "url": "/base/air/pm25List",
     "title": "",
-    "description": "<p>三字经列表</p>",
-    "group": "【三字经】",
+    "description": "<p>获取PM2.5新闻列表</p>",
+    "group": "【base】",
     "version": "0.0.0",
-    "filename": "routes/sanzijing.ts",
-    "groupTitle": "【三字经】",
-    "name": "GetSanzijing"
+    "filename": "routes/base/air.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseAirPm25list"
   },
   {
     "type": "get",
-    "url": "/sanzijing/detail",
+    "url": "/base/air/search",
     "title": "",
-    "description": "<p>三字经详情解释</p>",
+    "description": "<p>通过城市名搜索</p>",
+    "group": "【base】",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -57,23 +58,23 @@
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
-            "description": "<p>段落ID</p>"
+            "field": "city",
+            "description": "<p>城市名</p>"
           }
         ]
       }
     },
-    "group": "【三字经】",
     "version": "0.0.0",
-    "filename": "routes/sanzijing.ts",
-    "groupTitle": "【三字经】",
-    "name": "GetSanzijingDetail"
+    "filename": "routes/base/air.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseAirSearch"
   },
   {
     "type": "get",
-    "url": "/zhongyao/detail",
+    "url": "/base/air/sort",
     "title": "",
-    "description": "<p>中草药详情解释</p>",
+    "description": "<p>空气质量城市列表</p>",
+    "group": "【base】",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -81,70 +82,34 @@
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "id",
-            "description": "<p>中草药ID</p>"
+            "field": "sort",
+            "description": "<p>列表排序方式</p>"
           }
         ]
       }
     },
-    "group": "【中草药大全】",
     "version": "0.0.0",
-    "filename": "routes/zhongyao.ts",
-    "groupTitle": "【中草药大全】",
-    "name": "GetZhongyaoDetail"
+    "filename": "routes/base/air.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseAirSort"
   },
   {
     "type": "get",
-    "url": "/zhongyao/resou/",
+    "url": "/base/bible/",
     "title": "",
-    "description": "<p>中草药大全热搜</p>",
-    "group": "【中草药大全】",
+    "description": "<p>基督教圣经列表</p>",
+    "group": "【base】",
     "version": "0.0.0",
-    "filename": "routes/zhongyao.ts",
-    "groupTitle": "【中草药大全】",
-    "name": "GetZhongyaoResou"
+    "filename": "routes/base/bible.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseBible"
   },
   {
     "type": "get",
-    "url": "/zhongyao/search/",
+    "url": "/base/bible/detail",
     "title": "",
-    "description": "<p>中草药大全搜索</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "key",
-            "description": "<p>中草药关键字</p>"
-          }
-        ]
-      }
-    },
-    "group": "【中草药大全】",
-    "version": "0.0.0",
-    "filename": "routes/zhongyao.ts",
-    "groupTitle": "【中草药大全】",
-    "name": "GetZhongyaoSearch"
-  },
-  {
-    "type": "get",
-    "url": "/foxue/",
-    "title": "",
-    "description": "<p>佛学辞典列表</p>",
-    "group": "【佛学辞典】",
-    "version": "0.0.0",
-    "filename": "routes/foxue.ts",
-    "groupTitle": "【佛学辞典】",
-    "name": "GetFoxue"
-  },
-  {
-    "type": "get",
-    "url": "/foxue/detail",
-    "title": "",
-    "description": "<p>佛学辞典语录详情</p>",
-    "group": "【佛学辞典】",
+    "description": "<p>基督教圣经详情</p>",
+    "group": "【base】",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -159,16 +124,16 @@
       }
     },
     "version": "0.0.0",
-    "filename": "routes/foxue.ts",
-    "groupTitle": "【佛学辞典】",
-    "name": "GetFoxueDetail"
+    "filename": "routes/base/bible.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseBibleDetail"
   },
   {
     "type": "get",
-    "url": "/foxue/directory",
+    "url": "/base/bible/directory",
     "title": "",
-    "description": "<p>根据辞典ID获取辞典目录</p>",
-    "group": "【佛学辞典】",
+    "description": "<p>根据章节ID获取详细目录</p>",
+    "group": "【base】",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -177,19 +142,19 @@
             "type": "string",
             "optional": false,
             "field": "id",
-            "description": "<p>辞典ID</p>"
+            "description": "<p>章节ID</p>"
           }
         ]
       }
     },
     "version": "0.0.0",
-    "filename": "routes/foxue.ts",
-    "groupTitle": "【佛学辞典】",
-    "name": "GetFoxueDirectory"
+    "filename": "routes/base/bible.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseBibleDirectory"
   },
   {
     "type": "get",
-    "url": "/foxue/search",
+    "url": "/base/bible/search",
     "title": "",
     "description": "<p>搜索关键词</p>",
     "parameter": {
@@ -205,18 +170,458 @@
         ]
       }
     },
-    "group": "【佛学辞典】",
+    "group": "【base】",
     "version": "0.0.0",
-    "filename": "routes/foxue.ts",
-    "groupTitle": "【佛学辞典】",
-    "name": "GetFoxueSearch"
+    "filename": "routes/base/bible.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseBibleSearch"
   },
   {
     "type": "get",
-    "url": "/twelve_animals/luck",
+    "url": "/base/chengyu/detail",
+    "title": "",
+    "description": "<p>成语详情</p>",
+    "group": "【base】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>成语id</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/base/chengyu.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseChengyuDetail"
+  },
+  {
+    "type": "get",
+    "url": "/base/chengyu/resou",
+    "title": "",
+    "description": "<p>成语热搜</p>",
+    "group": "【base】",
+    "version": "0.0.0",
+    "filename": "routes/base/chengyu.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseChengyuResou"
+  },
+  {
+    "type": "get",
+    "url": "/base/chengyu/search",
+    "title": "",
+    "description": "<p>成语搜索</p>",
+    "group": "【base】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "key",
+            "description": "<p>成语名称 支持模糊搜索</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/base/chengyu.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseChengyuSearch"
+  },
+  {
+    "type": "get",
+    "url": "/base/constellation/fortune",
+    "title": "",
+    "description": "<p>星座运势</p>",
+    "group": "【base】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "en_name",
+            "description": "<p>星座英文名称</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/base/constellation.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseConstellationFortune"
+  },
+  {
+    "type": "get",
+    "url": "/base/constellation/match",
+    "title": "",
+    "description": "<p>星座匹配</p>",
+    "group": "【base】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "male",
+            "description": "<p>男生星座ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "female",
+            "description": "<p>女生星座ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/base/constellation.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseConstellationMatch"
+  },
+  {
+    "type": "get",
+    "url": "/base/daxie/",
+    "title": "",
+    "description": "<p>金额转大写</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "money",
+            "description": "<p>金额</p>"
+          }
+        ]
+      }
+    },
+    "group": "【base】",
+    "version": "0.0.0",
+    "filename": "routes/base/daxie.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseDaxie"
+  },
+  {
+    "type": "get",
+    "url": "/base/foxue/",
+    "title": "",
+    "description": "<p>佛学辞典列表</p>",
+    "group": "【base】",
+    "version": "0.0.0",
+    "filename": "routes/base/foxue.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseFoxue"
+  },
+  {
+    "type": "get",
+    "url": "/base/foxue/detail",
+    "title": "",
+    "description": "<p>佛学辞典语录详情</p>",
+    "group": "【base】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>详情ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/base/foxue.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseFoxueDetail"
+  },
+  {
+    "type": "get",
+    "url": "/base/foxue/directory",
+    "title": "",
+    "description": "<p>根据辞典ID获取辞典目录</p>",
+    "group": "【base】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>辞典ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/base/foxue.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseFoxueDirectory"
+  },
+  {
+    "type": "get",
+    "url": "/base/foxue/search",
+    "title": "",
+    "description": "<p>搜索关键词</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "key",
+            "description": "<p>关键词</p>"
+          }
+        ]
+      }
+    },
+    "group": "【base】",
+    "version": "0.0.0",
+    "filename": "routes/base/foxue.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseFoxueSearch"
+  },
+  {
+    "type": "get",
+    "url": "/base/garbage/resou",
+    "title": "",
+    "description": "<p>垃圾分类热搜词</p>",
+    "group": "【base】",
+    "version": "0.0.0",
+    "filename": "routes/base/garbage.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseGarbageResou"
+  },
+  {
+    "type": "get",
+    "url": "/base/garbage/search",
+    "title": "",
+    "description": "<p>垃圾分类搜索</p>",
+    "group": "【base】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "key",
+            "description": "<p>关键字</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/base/garbage.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseGarbageSearch"
+  },
+  {
+    "type": "get",
+    "url": "/base/huangli",
+    "title": "",
+    "description": "<p>老黄历查询</p>",
+    "group": "【base】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "date",
+            "description": "<p>日期 格式yyyymmdd</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/base/huangli.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseHuangli"
+  },
+  {
+    "type": "get",
+    "url": "/base/koran/detail",
+    "title": "",
+    "description": "<p>古兰经章节详情</p>",
+    "group": "【base】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>详情ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/base/koran.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseKoranDetail"
+  },
+  {
+    "type": "get",
+    "url": "/base/koran/directory",
+    "title": "",
+    "description": "<p>获取古兰经目录</p>",
+    "group": "【base】",
+    "version": "0.0.0",
+    "filename": "routes/base/koran.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseKoranDirectory"
+  },
+  {
+    "type": "get",
+    "url": "/base/one/article_detail",
+    "title": "",
+    "description": "<p>获取【一个】文章详情</p>",
+    "group": "【base】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>文章ID</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/base/one.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseOneArticle_detail"
+  },
+  {
+    "type": "get",
+    "url": "/base/one/home",
+    "title": "",
+    "description": "<p>获取【一个】首页推荐</p>",
+    "group": "【base】",
+    "version": "0.0.0",
+    "filename": "routes/base/one.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseOneHome"
+  },
+  {
+    "type": "get",
+    "url": "/base/pachong/detail",
+    "title": "",
+    "description": "<p>宠物详情</p>",
+    "group": "【base】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>宠物ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "key",
+            "description": "<p>宠物类别</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/base/pachong.ts",
+    "groupTitle": "【base】",
+    "name": "GetBasePachongDetail"
+  },
+  {
+    "type": "get",
+    "url": "/base/pachong/list",
+    "title": "",
+    "description": "<p>宠物列表</p>",
+    "group": "【base】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "type",
+            "description": "<p>宠物类别【wugui zhizhu xiyi yu】</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/base/pachong.ts",
+    "groupTitle": "【base】",
+    "name": "GetBasePachongList"
+  },
+  {
+    "type": "get",
+    "url": "/base/sanzijing/",
+    "title": "",
+    "description": "<p>三字经列表</p>",
+    "group": "【base】",
+    "version": "0.0.0",
+    "filename": "routes/base/sanzijing.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseSanzijing"
+  },
+  {
+    "type": "get",
+    "url": "/base/sanzijing/detail",
+    "title": "",
+    "description": "<p>三字经详情解释</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>段落ID</p>"
+          }
+        ]
+      }
+    },
+    "group": "【base】",
+    "version": "0.0.0",
+    "filename": "routes/base/sanzijing.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseSanzijingDetail"
+  },
+  {
+    "type": "get",
+    "url": "/base/twelve_animals/luck",
     "title": "",
     "description": "<p>生肖运势</p>",
-    "group": "【十二生肖】",
+    "group": "【base】",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -245,16 +650,16 @@
       }
     },
     "version": "0.0.0",
-    "filename": "routes/twelve_animals.ts",
-    "groupTitle": "【十二生肖】",
-    "name": "GetTwelve_animalsLuck"
+    "filename": "routes/base/twelve_animals.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseTwelve_animalsLuck"
   },
   {
     "type": "get",
-    "url": "/twelve_animals/match",
+    "url": "/base/twelve_animals/match",
     "title": "",
     "description": "<p>生肖匹配</p>",
-    "group": "【十二生肖】",
+    "group": "【base】",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -276,318 +681,16 @@
       }
     },
     "version": "0.0.0",
-    "filename": "routes/twelve_animals.ts",
-    "groupTitle": "【十二生肖】",
-    "name": "GetTwelve_animalsMatch"
+    "filename": "routes/base/twelve_animals.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseTwelve_animalsMatch"
   },
   {
     "type": "get",
-    "url": "/koran/detail",
-    "title": "",
-    "description": "<p>古兰经章节详情</p>",
-    "group": "【古兰经】",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "id",
-            "description": "<p>详情ID</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/koran.ts",
-    "groupTitle": "【古兰经】",
-    "name": "GetKoranDetail"
-  },
-  {
-    "type": "get",
-    "url": "/koran/directory",
-    "title": "",
-    "description": "<p>获取古兰经目录</p>",
-    "group": "【古兰经】",
-    "version": "0.0.0",
-    "filename": "routes/koran.ts",
-    "groupTitle": "【古兰经】",
-    "name": "GetKoranDirectory"
-  },
-  {
-    "type": "get",
-    "url": "/garbage/resou",
-    "title": "",
-    "description": "<p>垃圾分类热搜词</p>",
-    "group": "【垃圾分类】",
-    "version": "0.0.0",
-    "filename": "routes/garbage.ts",
-    "groupTitle": "【垃圾分类】",
-    "name": "GetGarbageResou"
-  },
-  {
-    "type": "get",
-    "url": "/garbage/search",
-    "title": "",
-    "description": "<p>垃圾分类搜索</p>",
-    "group": "【垃圾分类】",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "key",
-            "description": "<p>关键字</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/garbage.ts",
-    "groupTitle": "【垃圾分类】",
-    "name": "GetGarbageSearch"
-  },
-  {
-    "type": "get",
-    "url": "/base/bible/",
-    "title": "",
-    "description": "<p>基督教圣经列表</p>",
-    "group": "【基督教圣经】",
-    "version": "0.0.0",
-    "filename": "routes/base/bible.ts",
-    "groupTitle": "【基督教圣经】",
-    "name": "GetBaseBible"
-  },
-  {
-    "type": "get",
-    "url": "/base/bible/detail",
-    "title": "",
-    "description": "<p>基督教圣经详情</p>",
-    "group": "【基督教圣经】",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "id",
-            "description": "<p>详情ID</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/base/bible.ts",
-    "groupTitle": "【基督教圣经】",
-    "name": "GetBaseBibleDetail"
-  },
-  {
-    "type": "get",
-    "url": "/base/bible/directory",
-    "title": "",
-    "description": "<p>根据章节ID获取详细目录</p>",
-    "group": "【基督教圣经】",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "id",
-            "description": "<p>章节ID</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/base/bible.ts",
-    "groupTitle": "【基督教圣经】",
-    "name": "GetBaseBibleDirectory"
-  },
-  {
-    "type": "get",
-    "url": "/base/bible/search",
-    "title": "",
-    "description": "<p>搜索关键词</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "key",
-            "description": "<p>关键词</p>"
-          }
-        ]
-      }
-    },
-    "group": "【基督教圣经】",
-    "version": "0.0.0",
-    "filename": "routes/base/bible.ts",
-    "groupTitle": "【基督教圣经】",
-    "name": "GetBaseBibleSearch"
-  },
-  {
-    "type": "get",
-    "url": "/weather/air/detail",
-    "title": "",
-    "description": "<p>空气质量城市详情</p>",
-    "group": "【天气】",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "id",
-            "description": "<p>城市id</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/weather/air.ts",
-    "groupTitle": "【天气】",
-    "name": "GetWeatherAirDetail"
-  },
-  {
-    "type": "get",
-    "url": "/weather/air/pm25Detail",
-    "title": "",
-    "description": "<p>获取PM2.5新闻详情</p>",
-    "group": "【天气】",
-    "version": "0.0.0",
-    "filename": "routes/weather/air.ts",
-    "groupTitle": "【天气】",
-    "name": "GetWeatherAirPm25detail"
-  },
-  {
-    "type": "get",
-    "url": "/weather/air/pm25List",
-    "title": "",
-    "description": "<p>获取PM2.5新闻列表</p>",
-    "group": "【天气】",
-    "version": "0.0.0",
-    "filename": "routes/weather/air.ts",
-    "groupTitle": "【天气】",
-    "name": "GetWeatherAirPm25list"
-  },
-  {
-    "type": "get",
-    "url": "/weather/air/search",
-    "title": "",
-    "description": "<p>通过城市名搜索</p>",
-    "group": "【天气】",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "city",
-            "description": "<p>城市名</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/weather/air.ts",
-    "groupTitle": "【天气】",
-    "name": "GetWeatherAirSearch"
-  },
-  {
-    "type": "get",
-    "url": "/weather/air/sort",
-    "title": "",
-    "description": "<p>空气质量城市列表</p>",
-    "group": "【天气】",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "sort",
-            "description": "<p>列表排序方式</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/weather/air.ts",
-    "groupTitle": "【天气】",
-    "name": "GetWeatherAirSort"
-  },
-  {
-    "type": "get",
-    "url": "/ichong/pachong/detail",
-    "title": "",
-    "description": "<p>宠物详情</p>",
-    "group": "【宠物】",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "id",
-            "description": "<p>宠物ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "key",
-            "description": "<p>宠物类别</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/ichong/pachong.ts",
-    "groupTitle": "【宠物】",
-    "name": "GetIchongPachongDetail"
-  },
-  {
-    "type": "get",
-    "url": "/ichong/pachong/list",
-    "title": "",
-    "description": "<p>宠物列表</p>",
-    "group": "【宠物】",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "type",
-            "description": "<p>宠物类别【wugui zhizhu xiyi yu】</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/ichong/pachong.ts",
-    "groupTitle": "【宠物】",
-    "name": "GetIchongPachongList"
-  },
-  {
-    "type": "get",
-    "url": "/yilin/article_detail",
+    "url": "/base/yilin/article_detail",
     "title": "",
     "description": "<p>获取意林杂志文章详情</p>",
-    "group": "【意林】",
+    "group": "【base】",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -602,16 +705,16 @@
       }
     },
     "version": "0.0.0",
-    "filename": "routes/yilin.ts",
-    "groupTitle": "【意林】",
-    "name": "GetYilinArticle_detail"
+    "filename": "routes/base/yilin.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseYilinArticle_detail"
   },
   {
     "type": "get",
-    "url": "/yilin/article_list",
+    "url": "/base/yilin/article_list",
     "title": "",
     "description": "<p>获取意林杂志文章目录</p>",
-    "group": "【意林】",
+    "group": "【base】",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -626,27 +729,26 @@
       }
     },
     "version": "0.0.0",
-    "filename": "routes/yilin.ts",
-    "groupTitle": "【意林】",
-    "name": "GetYilinArticle_list"
+    "filename": "routes/base/yilin.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseYilinArticle_list"
   },
   {
     "type": "get",
-    "url": "/yilin/home",
+    "url": "/base/yilin/home",
     "title": "",
     "description": "<p>获取意林杂志列表</p>",
-    "group": "【意林】",
+    "group": "【base】",
     "version": "0.0.0",
-    "filename": "routes/yilin.ts",
-    "groupTitle": "【意林】",
-    "name": "GetYilinHome"
+    "filename": "routes/base/yilin.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseYilinHome"
   },
   {
     "type": "get",
-    "url": "/chengyu/detail",
+    "url": "/base/zhongyao/detail",
     "title": "",
-    "description": "<p>成语详情</p>",
-    "group": "【成语】",
+    "description": "<p>中草药详情解释</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -655,33 +757,33 @@
             "type": "string",
             "optional": false,
             "field": "id",
-            "description": "<p>成语id</p>"
+            "description": "<p>中草药ID</p>"
           }
         ]
       }
     },
+    "group": "【base】",
     "version": "0.0.0",
-    "filename": "routes/chengyu.ts",
-    "groupTitle": "【成语】",
-    "name": "GetChengyuDetail"
+    "filename": "routes/base/zhongyao.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseZhongyaoDetail"
   },
   {
     "type": "get",
-    "url": "/chengyu/resou",
+    "url": "/base/zhongyao/resou/",
     "title": "",
-    "description": "<p>成语热搜</p>",
-    "group": "【成语】",
+    "description": "<p>中草药大全热搜</p>",
+    "group": "【base】",
     "version": "0.0.0",
-    "filename": "routes/chengyu.ts",
-    "groupTitle": "【成语】",
-    "name": "GetChengyuResou"
+    "filename": "routes/base/zhongyao.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseZhongyaoResou"
   },
   {
     "type": "get",
-    "url": "/chengyu/search",
+    "url": "/base/zhongyao/search/",
     "title": "",
-    "description": "<p>成语搜索</p>",
-    "group": "【成语】",
+    "description": "<p>中草药大全搜索</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -690,94 +792,16 @@
             "type": "string",
             "optional": false,
             "field": "key",
-            "description": "<p>成语名称 支持模糊搜索</p>"
+            "description": "<p>中草药关键字</p>"
           }
         ]
       }
     },
+    "group": "【base】",
     "version": "0.0.0",
-    "filename": "routes/chengyu.ts",
-    "groupTitle": "【成语】",
-    "name": "GetChengyuSearch"
-  },
-  {
-    "type": "get",
-    "url": "/constellation/fortune",
-    "title": "",
-    "description": "<p>星座运势</p>",
-    "group": "【星座】",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "en_name",
-            "description": "<p>星座英文名称</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/constellation.ts",
-    "groupTitle": "【星座】",
-    "name": "GetConstellationFortune"
-  },
-  {
-    "type": "get",
-    "url": "/constellation/match",
-    "title": "",
-    "description": "<p>星座匹配</p>",
-    "group": "【星座】",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "number",
-            "optional": false,
-            "field": "male",
-            "description": "<p>男生星座ID</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "number",
-            "optional": false,
-            "field": "female",
-            "description": "<p>女生星座ID</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/constellation.ts",
-    "groupTitle": "【星座】",
-    "name": "GetConstellationMatch"
-  },
-  {
-    "type": "get",
-    "url": "/huangli",
-    "title": "",
-    "description": "<p>老黄历查询</p>",
-    "group": "【老黄历】",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "date",
-            "description": "<p>日期 格式yyyymmdd</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/huangli.ts",
-    "groupTitle": "【老黄历】",
-    "name": "GetHuangli"
+    "filename": "routes/base/zhongyao.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseZhongyaoSearch"
   },
   {
     "type": "get",

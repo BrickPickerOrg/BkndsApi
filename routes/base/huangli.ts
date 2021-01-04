@@ -1,8 +1,8 @@
 module.exports = {
   /**
-   * @api {get} /huangli
+   * @api {get} /base/huangli
    * @apiDescription 老黄历查询
-   * @apiGroup 【老黄历】
+   * @apiGroup 【base】
    * @apiParam {string} date 日期 格式yyyymmdd
    * @apiVersion 0.0.0
    */

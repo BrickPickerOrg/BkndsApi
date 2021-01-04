@@ -1,8 +1,8 @@
 module.exports = {
   /**
-   * @api {get} /foxue/
+   * @api {get} /base/foxue/
    * @apiDescription 佛学辞典列表
-   * @apiGroup 【佛学辞典】
+   * @apiGroup 【base】
    * @apiVersion 0.0.0
    */
   async ['/']({ res, request, cheerio }) {
@@ -25,9 +25,9 @@ module.exports = {
   },
 
   /**
-   * @api {get} /foxue/directory
+   * @api {get} /base/foxue/directory
    * @apiDescription 根据辞典ID获取辞典目录
-   * @apiGroup 【佛学辞典】
+   * @apiGroup 【base】
    * @apiParam {string} id 辞典ID
    * @apiVersion 0.0.0
    */
@@ -54,9 +54,9 @@ module.exports = {
   },
 
   /**
-   * @api {get} /foxue/detail
+   * @api {get} /base/foxue/detail
    * @apiDescription 佛学辞典语录详情
-   * @apiGroup 【佛学辞典】
+   * @apiGroup 【base】
    * @apiParam {string} id 详情ID
    * @apiVersion 0.0.0
    */
@@ -80,10 +80,10 @@ module.exports = {
   },
 
   /**
-   * @api {get} /foxue/search
+   * @api {get} /base/foxue/search
    * @apiDescription 搜索关键词
    * @apiParam {string} key 关键词
-   * @apiGroup 【佛学辞典】
+   * @apiGroup 【base】
    * @apiVersion 0.0.0
    */
   async ['/search']({ req, res, request, cheerio }) {

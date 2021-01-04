@@ -2,9 +2,9 @@ import { StringUtil } from '../../common/util/string_util'
 
 module.exports = {
   /**
-   * @api {get} /weather/air/sort
+   * @api {get} /base/air/sort
    * @apiDescription 空气质量城市列表
-   * @apiGroup 【天气】
+   * @apiGroup 【base】
    * @apiParam {string} sort 列表排序方式
    * @apiVersion 0.0.0
    */
@@ -33,9 +33,9 @@ module.exports = {
   },
 
   /**
-   * @api {get} /weather/air/detail
+   * @api {get} /base/air/detail
    * @apiDescription 空气质量城市详情
-   * @apiGroup 【天气】
+   * @apiGroup 【base】
    * @apiParam {string} id 城市id
    * @apiVersion 0.0.0
    */
@@ -66,9 +66,9 @@ module.exports = {
   },
 
   /**
-   * @api {get} /weather/air/search
+   * @api {get} /base/air/search
    * @apiDescription 通过城市名搜索
-   * @apiGroup 【天气】
+   * @apiGroup 【base】
    * @apiParam {string} city 城市名
    * @apiVersion 0.0.0
    */
@@ -101,9 +101,9 @@ module.exports = {
   },
 
   /**
-   * @api {get} /weather/air/pm25List
+   * @api {get} /base/air/pm25List
    * @apiDescription 获取PM2.5新闻列表
-   * @apiGroup 【天气】
+   * @apiGroup 【base】
    * @apiVersion 0.0.0
    */
   async ['/pm25List']({ req, res, request, cheerio }) {
@@ -126,9 +126,9 @@ module.exports = {
   },
 
   /**
-   * @api {get} /weather/air/pm25Detail
+   * @api {get} /base/air/pm25Detail
    * @apiDescription 获取PM2.5新闻详情
-   * @apiGroup 【天气】
+   * @apiGroup 【base】
    * @apiVersion 0.0.0
    */
   async ['/pm25Detail']({ req, res, request, cheerio }) {
