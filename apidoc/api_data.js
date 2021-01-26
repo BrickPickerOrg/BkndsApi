@@ -95,6 +95,30 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/base/baoan/",
+    "title": "",
+    "description": "<p>保安日记</p>",
+    "group": "【base】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "num",
+            "description": "<p>第几个</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/base/baoan.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseBaoan"
+  },
+  {
+    "type": "get",
     "url": "/base/bible/",
     "title": "",
     "description": "<p>基督教圣经列表</p>",
@@ -458,6 +482,37 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/base/huo",
+    "title": "",
+    "description": "<p>火星文转换</p>",
+    "group": "【base】",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "type",
+            "description": "<p>0简体, 1繁体, 2火星文</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "key",
+            "description": "<p>日期 格式yyyymmdd</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/base/huo.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseHuo"
+  },
+  {
+    "type": "get",
     "url": "/base/koran/detail",
     "title": "",
     "description": "<p>古兰经章节详情</p>",
@@ -490,6 +545,61 @@ define({ "api": [
     "filename": "routes/base/koran.ts",
     "groupTitle": "【base】",
     "name": "GetBaseKoranDirectory"
+  },
+  {
+    "type": "get",
+    "url": "/base/lishi/",
+    "title": "",
+    "description": "<p>历史上的今天</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "m",
+            "description": "<p>月</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "d",
+            "description": "<p>日</p>"
+          }
+        ]
+      }
+    },
+    "group": "【base】",
+    "version": "0.0.0",
+    "filename": "routes/base/lishi.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseLishi"
+  },
+  {
+    "type": "get",
+    "url": "/base/lishi/detail",
+    "title": "",
+    "description": "<p>历史上的今天</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "group": "【base】",
+    "version": "0.0.0",
+    "filename": "routes/base/lishi.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseLishiDetail"
   },
   {
     "type": "get",
