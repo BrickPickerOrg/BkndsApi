@@ -42,7 +42,7 @@ export class StringUtil {
   static formatUnicode(string: string): string {
     return this.replaceSymbol(
       unescape(string.replace(/&#x/g, '%u').replace(/;/g, ''))
-    )
+    ).replace(/%uB7/g, '·')
   }
 
   static getTopicDescription(body: string): string {
