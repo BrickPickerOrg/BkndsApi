@@ -340,6 +340,41 @@
   },
   {
     "type": "get",
+    "url": "/base/everyday/detail",
+    "title": "",
+    "description": "<p>每日一句口语</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "href",
+            "description": "<p>详情地址</p>"
+          }
+        ]
+      }
+    },
+    "group": "【base】",
+    "version": "0.0.0",
+    "filename": "routes/base/everyday.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseEverydayDetail"
+  },
+  {
+    "type": "get",
+    "url": "/base/everyday/list",
+    "title": "",
+    "description": "<p>每日一句口语</p>",
+    "group": "【base】",
+    "version": "0.0.0",
+    "filename": "routes/base/everyday.ts",
+    "groupTitle": "【base】",
+    "name": "GetBaseEverydayList"
+  },
+  {
+    "type": "get",
     "url": "/base/foxue/",
     "title": "",
     "description": "<p>佛学辞典列表</p>",
