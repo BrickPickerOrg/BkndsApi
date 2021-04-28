@@ -136,6 +136,15 @@ module.exports = {
     const { id } = req.query
     const { name } = req.query
     const { singer } = req.query
+    const { contentId } = req.query
+
+    if (contentId) {
+      const url = `http://218.205.239.34/MIGUM2.0/v1.0/content/sub/listenSong.do?toneFlag=HQ&netType=00&copyrightId=0&contentId=${contentId}&resourceType=2&channel=0`
+      return res.send({
+        code: 200,
+        data: { url },
+      })
+    }
 
     const urlResult = await request.send({
       url: 'http://pd.musicapp.migu.cn/MIGUM3.0/v2.0/content/listen-url',

@@ -103,7 +103,7 @@ module.exports = {
     res.send({
       code: 200,
       data: {
-        playlist,
+        playlist: playlist.splice(0, 10),
         songsImgBox,
         songs,
         albums,
