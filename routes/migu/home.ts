@@ -105,7 +105,7 @@ module.exports = {
       data: {
         playlist: playlist.splice(0, 10),
         songsImgBox,
-        songs,
+        songs: songs.splice(0, 8),
         albums,
         digital
       },
